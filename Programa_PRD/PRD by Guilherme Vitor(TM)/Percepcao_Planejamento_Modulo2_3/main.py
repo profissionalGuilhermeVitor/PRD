@@ -15,7 +15,7 @@ with open('notes.txt', 'w') as writer:
     writer.writelines(serialP.receiveData())
     print(f.readline(1))
 
-str = txt.readlines(10000)
+str = txt.readlines(150000)
 print(str[4])
 
 
