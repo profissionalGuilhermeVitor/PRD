@@ -1,0 +1,17 @@
+{Vetor Completo 
+{,Vetor Completo 
+{,Vetor Completo 
+{,Vetor Completo 
+{AT: -1, 1,-1, 1, 0, 0, 1,-1, 0, 0,-1, 1, 0, 0, 1,-1, 1,-1; MK: 0, 0, 1,},}{Vetor Completo 
+{,Vetor Completo 
+{,Vetor Completo 
+{,Vetor Completo 
+{,},}{Vetor Completo 
+{,Vetor Completo 
+{,Vetor Completo 
+{,Vetor Completo 
+{,},}{Vetor Completo 
+{,Vetor Completo 
+{,Vetor Completo 
+{,Vetor Completo 
+{,},}

@@ -1,0 +1,26 @@
+(define (problem blocks-domiain_task)
+(:domain blocks-domain)
+(:objects
+	a b c d t1 t2 t3 t4 - block
+)
+(:init 
+    (table t1)
+    (table t2)
+    (table t3)
+    (table t4)
+	(clear d)
+	(clear t2)
+	(clear t3)
+	(clear t4)
+	(emptyhand)
+	(on a t1)
+	(on b a)
+	(on c b)
+	(on d c)
+)
+(:goal (and
+	(on c t1)
+	(on a c)
+	(on d a)
+	(on b d)
+)))
