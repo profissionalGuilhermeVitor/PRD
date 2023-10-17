@@ -17,6 +17,8 @@ with open('notes.txt', 'w') as writer:
 
 str = txt.readlines(150000)
 print(str[4])
+print("Nos")
+
 
 
     
