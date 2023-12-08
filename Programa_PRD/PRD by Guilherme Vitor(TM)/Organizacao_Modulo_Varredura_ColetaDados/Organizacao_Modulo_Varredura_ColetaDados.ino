@@ -353,6 +353,7 @@ bool varredura(){
         
         if(contBlocos == 5 ){
           Serial.println("\nSUCESSO: 5 Blocos Foram Encontrados!");
+          
           break;
         }else if(contBlocos == 4 && posicaoAtual == 10){
           Serial.println("\nSUCESSO: 4 Blocos Foram Encontrados!");

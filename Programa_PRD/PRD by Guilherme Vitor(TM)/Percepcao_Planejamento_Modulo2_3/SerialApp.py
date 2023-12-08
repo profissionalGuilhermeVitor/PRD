@@ -3,8 +3,8 @@ import serial.tools.list_ports
 
 class SerialApp ():
     def __init__(self):
-        self.serialPort = serial.Serial()
-        self.baudrate = [9600,115200]
+        self.serialPort = serial.Serial()#Cria um objeto para a comunicação serial
+        self.baudrate = [9600,115200] #Baudrates necessários
         self.portlist = []
 
     def updatePort(self):
@@ -20,7 +20,7 @@ class SerialApp ():
 
     #Receber Dados
     def receiveData(self):
-        dataRead = self.serialPort.read(1000).decode('utf-8')
+        dataRead = self.serialPort.read(600).decode('utf-8')
         print(dataRead)
         return dataRead
 
