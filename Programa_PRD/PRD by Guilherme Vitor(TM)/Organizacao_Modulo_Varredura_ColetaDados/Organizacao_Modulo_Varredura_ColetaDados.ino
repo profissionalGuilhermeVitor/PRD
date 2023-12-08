@@ -149,30 +149,9 @@ void setup()
 //=================================================== VOID LOOP ============================================================//    *VOID LOOP*
 void loop()
 { 
-
-   millis();
-   if(contZeragem == 0){
-       Serial.println("\nZeragem do Robo:"); 
-       zeragem();
-       contZeragem++;
-    }
-      
-       bool excecaoVarredura = true;
-       bool verificacao = true;
-       varredura();
-       
-       for(int it =0;it<4;it++){
-        for(int jo =0;jo<4;jo++){
-          Serial.println("Vetor de Mensagem Linha ");
-          Serial.print(it);
-          Serial.print(" coluna ");
-          Serial.print(jo);
-          Serial.print(":");
-          Serial.println(messages[it][jo]);
-        }
-        }
-      
-       
+  zeragem();
+  varredura();
+  
   } 
 
 void zeragem(){
@@ -223,10 +202,10 @@ void zeragem(){
 
       // Ponto 0x0(X-Z), origem.
       stepperX.moveTo(3137);
-      stepperY.moveTo(10000); // YMax = 30000, YMin = 10000.
+      stepperY.moveTo(2500); // YMax = 30000, YMin = 10000.
       stepperZ.moveTo(3773);
 
-      while (stepperY.currentPosition() < 10000){
+      while (stepperY.currentPosition() < 2500){
         stepperX.run();
         stepperZ.run();
         stepperY.run();
@@ -241,7 +220,7 @@ void zeragem(){
     stepperY.setAcceleration(500);   // Aceleração
     
     posicaoAtual = 1; 
-    Serial.println( "\nOrigem(Z-X): " + (String)(stepperZ.currentPosition() / 3773) + "x" + (String)(stepperX.currentPosition() / 3764) );
+    Serial.println( "\nOrigem(Z-X): " + (String)(stepperZ.currentPosition() / 3773) + "x" + (String)(stepperX.currentPosition() / 3773) );
    
 }
 //====================================================  Varredura Inicial do Robo e funções de movimentação  =========================================================================//
@@ -268,22 +247,7 @@ bool varredura(){
       movimentaY(1);
       
       temBloco = identifica();// Descobre e atualiza qual bloco está sendo identificado
-      /*
-      //Set da linha que a mensagem será armazenada
-      if(posicaoAtual <6 && posicaoAtual >0){
-        i = 0;
-        }else if(posicaoAtual >6 && posicaoAtual <11){
-          i = 1;
-          }else if(posicaoAtual >11 && posicaoAtual <16){
-          i = 2;
-          }else if(posicaoAtual >16 && posicaoAtual <21){
-          i = 3;
-          }else if(posicaoAtual >21 && posicaoAtual <26){
-          i = 4;
-          }
-          */
-  //Fim de Set para mensagens
-      
+
       if (temBloco == "A" || temBloco == "B" || temBloco == "C" || temBloco == "D" || temBloco == "E"){
         if (temBloco == "A"){
           messages[i][j] = tagToString();// Mensagem armazenada
@@ -451,9 +415,9 @@ void movimentaY(int direcao){
        
    } else if (direcao == 1){
        
-       stepperY.moveTo(19000); // YMax = 20000, YMin = 0, depois da zeragem.
+       stepperY.moveTo(25500); // YMax = 20000, YMin = 0, depois da zeragem.
    
-       while (stepperY.currentPosition() < 19000){
+       while (stepperY.currentPosition() < 25500){
           stepperY.run();
        }
    }
@@ -780,7 +744,7 @@ void writeNFC(){
       Serial.println("\nPlace a formatted Mifare Classic NFC tag on the reader.");
     if (nfc.tagPresent()) {
         NdefMessage message = NdefMessage();
-        message.addUriRecord("(:init(D on t1))(:objective-0(D on E))");
+        message.addUriRecord("(:init(E on t5))(:objective-0(E on t5))");
 
         bool success = nfc.write(message);
         if (success) {
@@ -894,24 +858,29 @@ String identifica(){
 
    //Serial.println(uid);
 
-   if (uid == "E2 7A 55 DD"){
+   if (uid == "42 1B E5 DD"){
       Serial.println("\nO bloco A esta na posição: " + (String)(stepperZ.currentPosition() / 1509) + "x" + (String)(stepperX.currentPosition() / 1509)  );
+      Serial.println(tagToString());
       
       return "A";
-   } else if (uid == "42 1B E5 DD"){
+   } else if (uid == "82 A9 C5 DF"){
       Serial.println("\nO bloco B esta na posição: " + (String)(stepperZ.currentPosition() / 1509) + "x" + (String)(stepperX.currentPosition() / 1509)  );
+      Serial.println(tagToString());
       
       return "B";
    } else if (uid == "C2 AD C5 DF"){
       Serial.println("\nO bloco C esta na posição: " + (String)(stepperZ.currentPosition() / 1509) + "x" + (String)(stepperX.currentPosition() / 1509)  );
+      Serial.println(tagToString());
       
       return "C";
-   }else if (uid == "D2 1C E5 DD"){
+   }else if (uid == "E2 7A 55 DD"){
       Serial.println("\nO bloco D esta na posição: " + (String)(stepperZ.currentPosition() / 1509) + "x" + (String)(stepperX.currentPosition() / 1509)  );
+      Serial.println(tagToString());
       
       return "D";
    }else if (uid == "E2 39 55 DD"){
-      Serial.println("\nO bloco E esta na posição: " + (String)(stepperZ.currentPosition() / 1509) + "x" + (String)(stepperX.currentPosition() / 1509)  );
+    Serial.println("\nO bloco E esta na posição: " + (String)(stepperZ.currentPosition() / 1509) + "x" + (String)(stepperX.currentPosition() / 1509)  );
+      Serial.println(tagToString());
       
       return "E";
    } else {
