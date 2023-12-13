@@ -151,6 +151,7 @@ void loop()
 { 
   zeragem();
   varredura();
+ //Colocar condição para que o python mande uma mensagem dizendo que o planejamento está pronto
   
   } 
 
