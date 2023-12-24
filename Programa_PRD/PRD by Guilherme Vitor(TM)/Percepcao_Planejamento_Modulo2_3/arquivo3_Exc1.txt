@@ -34,7 +34,7 @@ ERRO 1!
 
 O bloco D esta na posi��o: 0x3
 
-(:init(D on t4))(:objective-0(D on t3))
+(:init(D on t4))(:objective-0(D on E))
 
 ERRO 1!
 

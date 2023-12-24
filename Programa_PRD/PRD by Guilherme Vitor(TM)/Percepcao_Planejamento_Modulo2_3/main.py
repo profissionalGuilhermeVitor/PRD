@@ -18,14 +18,7 @@ print(serialP.connectSerial())
 with open('D:/Matérias da faculdade/2023-1/TCC/Arquivos/Programa_PRD/PRD by Guilherme Vitor(TM)/Percepcao_Planejamento_Modulo2_3/notes.txt','w') as writer:
     writer.write(serialP.receiveData())
 serialP.closePort()
-arq = open('D:/Matérias da faculdade/2023-1/TCC/Arquivos/Programa_PRD/PRD by Guilherme Vitor(TM)/Percepcao_Planejamento_Modulo2_3/notes.txt','r')
-texto = arq.read()
-init = re.findall(":init\(\w on \w+\)",texto)
-init = [i[5:] for i in init]
-objective = re.findall(":objective-0\(\w on \w+\)",texto)
-objective = [i[12:] for i in objective]
-print(init)
-print(objective)
+
 
 
 
