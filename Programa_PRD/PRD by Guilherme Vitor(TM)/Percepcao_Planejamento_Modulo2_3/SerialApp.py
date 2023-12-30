@@ -9,7 +9,7 @@ class SerialApp ():
 
     def updatePort(self):
         self.portlist =[port.device for port in serial.tools.list_ports.comports() ]
-        print(self.portlist)
+        return self.portlist
 
     #Estabelecer Conexão
     def connectSerial(self):
@@ -30,6 +30,7 @@ class SerialApp ():
             dataSend = str(self.data) + '\n'
             self.serialPort.write(dataSend.encode())
             self.serialPort.flushOutput()
+            return dataSend
 
     #Fechar a porta
 

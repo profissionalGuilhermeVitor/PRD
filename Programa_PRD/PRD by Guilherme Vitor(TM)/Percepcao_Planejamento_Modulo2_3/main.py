@@ -1,23 +1,32 @@
 import serial 
 import re
 from SerialApp import SerialApp
-import pddl
-from pddl.logic import Predicate, constants, variables
-from pddl.core import Domain, Problem
-from pddl.action import Action
-from pddl.formatter import domain_to_string, problem_to_string
-from pddl.requirements import Requirements
+from CheckException import CheckException
+from PddlEditor import PddlEditor
 
 
 serialP = SerialApp()
-serialP.serialPort.port = 'COM5'
+serialP.serialPort.port = 'COM4'
 
 serialP.serialPort.baudrate = 9600
 print(serialP.connectSerial())
 
-with open('D:/Matérias da faculdade/2023-1/TCC/Arquivos/Programa_PRD/PRD by Guilherme Vitor(TM)/Percepcao_Planejamento_Modulo2_3/notes.txt','w') as writer:
+with open('notes1.txt','w') as writer:
     writer.write(serialP.receiveData())
 serialP.closePort()
+#Tratamento de Exceções-A fazer no Arduino
+exEstatica = CheckException('notes.txt')# Cria objeto de Verificador de exceção
+if(exEstatica.exception1()!= None):
+    print(f'Exceção {exEstatica.exception1()}')
+    serialP.sendData(exEstatica.exception1())
+#Chamar Planejador e Editor de PDDL
+editor = PddlEditor()
+
+editor.editar_problema('arquivo1.txt')
+
+
+
+
 
 
 

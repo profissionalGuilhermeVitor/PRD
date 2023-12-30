@@ -5,43 +5,43 @@ Firmware ver. 1.6
 
 Origem(Z-X): 0x0
 
-45836
+23931
 
 
 Verifica��o do Posicionamento dos Blocos:
 
 
-O bloco A esta na posi��o: 0x0
+O bloco E esta na posi��o: 0x0
 
-(:init(A on t1))(:objective-0())
+(:init(on e t1))(:objective-0())
 
 
-O bloco B esta na posi��o: 1x0
+O bloco A esta na posi��o: 1x0
 
-(:init(B on A))(:objective-0(B on A))
+(:init(on a e))(:objective-0(on a e))
 
 ERRO 1!
+
+
+O bloco D esta na posi��o: 0x1
+
+(:init(on d t2))(:objective-0(on d t3))
 
 ERRO 1!
 
 
 O bloco C esta na posi��o: 0x2
 
-(:init(C on t3))(:objective-0(C on t3))
+(:init(on c t3))(:objective-0(on c b))
+
+ERRO 1!
 
 ERRO 1!
 
 
-O bloco D esta na posi��o: 0x3
+O bloco B esta na posi��o: 0x4
 
-(:init(D on t4))(:objective-0(D on E))
-
-ERRO 1!
-
-
-O bloco E esta na posi��o: 0x4
-
-(:init(E on t5))(:objective-0(E on t5))
+(:init(on b t5))(:objective-0(on b d))
 
 
 SUCESSO: 5 Blocos Foram Encontrados!
