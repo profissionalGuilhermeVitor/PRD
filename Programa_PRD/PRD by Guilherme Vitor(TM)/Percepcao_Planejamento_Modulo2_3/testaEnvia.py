@@ -1,5 +1,5 @@
-from PddlEditor import PddlEditor
+import subprocess
+import sys
 
-editor = PddlEditor()
-
-editor.editar_problema('arquivo1.txt')
+result =subprocess.run(['Git-2.42.0.2-64-bit.exe', "-c", "print('ocean')"])
+print(sys.executable)

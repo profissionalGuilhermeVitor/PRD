@@ -103,5 +103,5 @@ class CheckException:
                 if (i=='0'):
                     if(checkImpossible2[checkImpossible2.index(i)+1] !='0'):
                         return '4_2'
-ex1 = CheckException('arquivo2.txt')
+ex1 = CheckException('TestesExemplo/arquivo1.txt')
 print(ex1.exception1())
