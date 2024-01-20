@@ -1,0 +1,54 @@
+Found chip PN532
+Firmware ver. 1.6
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+((0,0,0,0,0),(0,0,0,0,0),(0,0,0,0,0),(0,0,0,0,0),(0,0,0,0,0))
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+ERRO 1!
+((0,0,0,0,0),(0,0,0,0,0),(0,0,0,0,0),(0,0,0,0,0),(
