@@ -1,11 +1,13 @@
 import serial
 import serial.tools.list_ports
 
+
 class SerialApp ():
     def __init__(self):
         self.serialPort = serial.Serial()#Cria um objeto para a comunicação serial
         self.baudrate = [9600,115200] #Baudrates necessários
         self.portlist = []
+        
 
     def updatePort(self):
         self.portlist =[port.device for port in serial.tools.list_ports.comports() ]
@@ -20,14 +22,14 @@ class SerialApp ():
 
     #Receber Dados
     def receiveData(self):
-        dataRead = self.serialPort.read(600).decode('utf-8')
+        dataRead = self.serialPort.read(580).decode('utf-8')
         print(dataRead)
         return dataRead
 
     #Enviar Dados
-    def sendData(self):
+    def sendData(self,data):
         if(self.serialPort.isOpen()):
-            dataSend = str(self.data) + '\n'
+            dataSend = str(data) + '\n'
             self.serialPort.write(dataSend.encode())
             self.serialPort.flushOutput()
             return dataSend
@@ -36,3 +38,14 @@ class SerialApp ():
 
     def closePort(self):
         self.serialPort.close()
+
+    def portIsUsable(portName):
+        try:
+            ser = serial.Serial(port=portName)
+            return True
+        except:
+            return False
+        
+    def readSerial(self):
+        dataRead = self.serialPort.read(10).decode('utf-8')
+

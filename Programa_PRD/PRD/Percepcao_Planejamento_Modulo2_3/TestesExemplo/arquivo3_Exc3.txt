@@ -5,7 +5,7 @@ Firmware ver. 1.6
 
 Origem(Z-X): 0x0
 
-23931
+29105
 
 
 Verifica��o do Posicionamento dos Blocos:
@@ -13,37 +13,37 @@ Verifica��o do Posicionamento dos Blocos:
 
 O bloco E esta na posi��o: 0x0
 
-(:init(on e t1))(:objective-0())
+(:init(on e t1))(:objective-0(on e t5))
 
 
-O bloco A esta na posi��o: 1x0
+O bloco D esta na posi��o: 1x0
 
-(:init(on a e))(:objective-0(on a e))
-
-ERRO 1!
+(:init(on d t1))(:objective-0(on d c))
 
 
-O bloco D esta na posi��o: 0x1
+O bloco C esta na posi��o: 2x0
 
-(:init(on d t2))(:objective-0(on d t3))
-
-ERRO 1!
+(:init(on c b))(:objective-0(on c t3))
 
 
-O bloco C esta na posi��o: 0x2
+O bloco A esta na posi��o: 3x0
 
-(:init(on c t3))(:objective-0(on c b))
-
-ERRO 1!
-
-ERRO 1!
+(:init(on a t1))(:objective-0())
 
 
-O bloco B esta na posi��o: 0x4
+O bloco B esta na posi��o: 4x0
 
-(:init(on b t5))(:objective-0(on b d))
+(:init(on b a))(:objective-0(on b c))
 
 
 SUCESSO: 5 Blocos Foram Encontrados!
 
 Varredura Finalizada!
+
+
+Origem(Z-X): 0x0
+
+239582
+
+
+Verifica��

@@ -30,9 +30,9 @@ class CheckException:
             "t4":"0x3",
             "t5":"0x4",
         }
-        print(init)
-        print(objective)
+
         filpos = re.findall(r'o: \wx\w',txt1)#Filtro de posições encontradas
+        
         #Filtragem de posições repetidas no arquivo
         pos=[]
         repetidos = set()
@@ -50,6 +50,10 @@ class CheckException:
         blocosIniciais = [i[9] for i in blocosIniciais]
         posicoesIniciais = re.findall(":init\(on \w \w+\)",txt1)
         posicoesIniciais = [i[11] if i[12]==')' else i[11:13] for i in posicoesIniciais]
+        blocosOBJ = re.findall(":init\(on \w \w+\)",txt1)
+        blocosOBJ = [i[9] for i in blocosIniciais]
+        posicoesOBJ = re.findall(":init\(on \w \w+\)",txt1)
+        posicoesOBJ = [i[11] if i[12]==')' else i[11:13] for i in posicoesIniciais]
 
         
         zipBV = list(zip(blocosIniciais,pos))
@@ -68,22 +72,30 @@ class CheckException:
                     mapa[i][j] = '0'
         print(mapa)
         #Objetivos e Posições iniciais iguais-Exceçao 1
-        for i in init:
-            if(init.count(i)>1):
+        for i in blocosIniciais:
+            if(blocosIniciais.count(i)>1):
                 return '1i'
         
-        for i in objective:
-            if(objective.count(i)>1):
+        for i in posicoesOBJ:
+            if(posicoesOBJ.count(i)>1):
                 return '1o'
 
         #Inconsistências em objetivos ou iniciais-Blocos na mesma posição que outros-Exceção 2
-        count =0
+        counto =0
+        counti = 0
+        print(objective)
+        print(init)
         for a in objective:
             for j in objective:
                 if(j[6] == a[4] and j[4]==a[6]):
-                    count +=1
+                    counto +=1
+        
+        for a in init:
+            for j in init:
+                if(j[6] == a[4] and j[4]==a[6]):
+                    counti +=1
 
-        if(count > 1):return '2'
+        if(counto > 1 or counti > 1):return '2'
         #Objetivo vazio-Exceção 3
         
         if len(objective)<5 or len(init)<5:return '3'
@@ -103,5 +115,4 @@ class CheckException:
                 if (i=='0'):
                     if(checkImpossible2[checkImpossible2.index(i)+1] !='0'):
                         return '4_2'
-ex1 = CheckException('TestesExemplo/arquivo1.txt')
-print(ex1.exception1())
+
