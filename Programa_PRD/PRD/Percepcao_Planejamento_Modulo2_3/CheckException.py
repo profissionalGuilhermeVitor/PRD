@@ -50,10 +50,10 @@ class CheckException:
         blocosIniciais = [i[9] for i in blocosIniciais]
         posicoesIniciais = re.findall(":init\(on \w \w+\)",txt1)
         posicoesIniciais = [i[11] if i[12]==')' else i[11:13] for i in posicoesIniciais]
-        blocosOBJ = re.findall(":init\(on \w \w+\)",txt1)
-        blocosOBJ = [i[9] for i in blocosIniciais]
-        posicoesOBJ = re.findall(":init\(on \w \w+\)",txt1)
-        posicoesOBJ = [i[11] if i[12]==')' else i[11:13] for i in posicoesIniciais]
+        blocosOBJ = re.findall(":objective-0\(on \w \w+\)",txt1)
+        blocosOBJ = [i[9] for i in blocosOBJ]
+        posicoesOBJ = re.findall(":objective-0\(on \w \w+\)",txt1)
+        posicoesOBJ = [i[18] if i[19]==')' else i[18:20] for i in posicoesOBJ]
 
         
         zipBV = list(zip(blocosIniciais,pos))
@@ -70,10 +70,10 @@ class CheckException:
                     mapa[i][j] = relacao[mapa[i][j]]
                 else:
                     mapa[i][j] = '0'
-        print(mapa)
+        print(posicoesOBJ)
         #Objetivos e Posições iniciais iguais-Exceçao 1
-        for i in blocosIniciais:
-            if(blocosIniciais.count(i)>1):
+        for i in posicoesIniciais:
+            if(posicoesIniciais.count(i)>1):
                 return '1i'
         
         for i in posicoesOBJ:
@@ -116,3 +116,5 @@ class CheckException:
                     if(checkImpossible2[checkImpossible2.index(i)+1] !='0'):
                         return '4_2'
 
+exception = CheckException('TestesExemplo/arquivo3_Exc3.txt')
+print(exception.exception1())

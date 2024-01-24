@@ -7,7 +7,7 @@ import SerialApp as sp
 
 
 serialP = SerialApp()
-serialP.serialPort.port = serialP.updatePort()[0]
+serialP.serialPort.port = 'COM5'
 print(serialP.updatePort()[0])
 
 

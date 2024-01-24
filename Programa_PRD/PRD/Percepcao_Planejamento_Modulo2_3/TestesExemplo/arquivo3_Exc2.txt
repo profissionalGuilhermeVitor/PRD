@@ -13,35 +13,35 @@ Verifica��o do Posicionamento dos Blocos:
 
 O bloco E esta na posi��o: 0x0
 
-(:init(on e a))(:objective-0(on e t5))
+(:init(on e t1))(:objective-0(on e t5))
 
 ERRO 1!
 
 
 O bloco B esta na posi��o: 0x1
 
-(:init(on b a))(:objective-0(on b c))
+(:init(on b t2))(:objective-0(on b a))
 
 ERRO 1!
 
 
 O bloco D esta na posi��o: 0x2
 
-(:init(on d t1))(:objective-0(on d c))
+(:init(on d t3))(:objective-0(on d c))
 
 ERRO 1!
 
 
 O bloco C esta na posi��o: 0x3
 
-(:init(on c b))(:objective-0(on c t3))
+(:init(on c t4))(:objective-0(on c t3))
 
 ERRO 1!
 
 
 O bloco A esta na posi��o: 0x4
 
-(:init(on a b))(:objective-0(on a t1))
+(:init(on a t5))(:objective-0(on a b))
 
 
 SUCESSO: 5 Blocos Foram Encontrados!

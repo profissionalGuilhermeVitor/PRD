@@ -2,6 +2,6 @@
     (:domain blocks-domain)
     (:requirements :disjunctive-preconditions :equality :negative-preconditions :strips :typing)
     (:objects a b c d e t1 t2 t3 t4 t5 - block)
-    (:init (clear c) (clear d) (clear e) (emptyhand) (on a b) (on b a) (on c b) (on d t1) (on e a) (table t1) (table t2) (table t3) (table t4) (table t5))
-    (:goal (and (on e t5) (on b c) (on d c) (on c t3) (on a t1)))
+    (:init (clear e) (emptyhand) (on a t1) (on b a) (on c b) (on d c) (on e d) (table t1) (table t2) (table t3) (table t4) (table t5))
+    (:goal (and (on b a) (on c t2) (on d t4) (on e t3)))
 )
