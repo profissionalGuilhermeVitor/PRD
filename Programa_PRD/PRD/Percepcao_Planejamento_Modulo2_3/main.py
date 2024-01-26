@@ -4,6 +4,9 @@ from SerialApp import SerialApp
 from CheckException import CheckException
 from PddlEditor import PddlEditor
 import SerialApp as sp
+import subprocess
+from subprocess import check_output
+from planejamento import plan
 
 
 serialP = SerialApp()
@@ -26,6 +29,8 @@ if(exEstatica.exception1()!= None):
 editor = PddlEditor()
 
 editor.editar_problema('notes1.txt')
+
+actionsList = plan()
 
 
 

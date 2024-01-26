@@ -21,7 +21,7 @@ class PddlEditor:
         ar1 = file.read()
 
         init = re.findall(":init\(on \w \w+\)",ar1)#Predicados dos iniciais
-        print
+    
         init = [i[5:] for i in init]
         
         objective = re.findall(":objective-0\(on \w \w+\)",ar1)#Predicados dos objetivos
@@ -103,4 +103,5 @@ class PddlEditor:
         with open('TestesExemplo/problem.pddl','w') as arquivos:
             arquivos.write(problem_to_string(new_problem))
 
-
+editor = PddlEditor()
+editor.editar_problema('TestesExemplo/arquivo1.txt')

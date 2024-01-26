@@ -2,7 +2,7 @@ Found chip PN532
 Firmware ver. 1.6
 
 Origem(Z-X): 0x0
-42636
+55422
 
 Verificação do Posicionamento dos Blocos:
 
@@ -25,4 +25,4 @@ SUCESSO: 5 Blocos Foram Encontrados!
 Varredura Finalizada!
 
 Origem(Z-X): 0x0
-25
+26
