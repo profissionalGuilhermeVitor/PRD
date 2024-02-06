@@ -22,7 +22,7 @@ class SerialApp ():
 
     #Receber Dados
     def receiveData(self):
-        dataRead = self.serialPort.read(560).decode('utf-8')
+        dataRead = self.serialPort.read(590).decode('utf-8')
         print(dataRead)
         return dataRead
 
@@ -30,6 +30,7 @@ class SerialApp ():
     def sendData(self,data):
         if(self.serialPort.isOpen()):
             dataSend = str(data) + '\n'
+            print("Mensagem " +dataSend)
             self.serialPort.write(dataSend.encode())
             self.serialPort.flushOutput()
             return dataSend

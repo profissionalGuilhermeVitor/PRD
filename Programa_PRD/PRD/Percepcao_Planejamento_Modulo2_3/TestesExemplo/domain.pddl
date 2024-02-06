@@ -1,6 +1,6 @@
 (define (domain blocks-domain)
 
-(:requirements :strips :typing :disjunctive-preconditions :equality :negative-preconditions)
+(:requirements :strips :typing :disjunctive-preconditions :equality :negative-preconditions )
 
 (:types 
         block - object

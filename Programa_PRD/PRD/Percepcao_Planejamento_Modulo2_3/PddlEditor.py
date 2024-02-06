@@ -35,8 +35,8 @@ class PddlEditor:
 
         
             
-        problem = parse_problem('TestesExemplo/problem.pddl')
-        domain = parse_domain('TestesExemplo/domain.pddl')
+        problem = parse_problem('problem.pddl')
+        domain = parse_domain('domain.pddl')
         lista1 = [Constant(i[4]) for i in init]
         lista2 =[Constant(i[6:8]) if i[7]!=')' else Constant(i[6]) for i in init]
         
@@ -100,8 +100,8 @@ class PddlEditor:
 
         new_problem = Problem('problemPDDL',domain,domain.name,domain.requirements,problem.objects,pred,aux)
         print(problem_to_string(new_problem))
-        with open('TestesExemplo/problem.pddl','w') as arquivos:
+        with open('problem.pddl','w') as arquivos:
             arquivos.write(problem_to_string(new_problem))
 
-editor = PddlEditor()
-editor.editar_problema('TestesExemplo/arquivo1.txt')
+#editor = PddlEditor()
+#editor.editar_problema('testando.txt')

@@ -23,14 +23,14 @@ O bloco B esta na posi��o: 1x0
 
 O bloco D esta na posi��o: 2x0
 
-(:init(on d b))(:objective-0(on d b))
+(:init(on d a))(:objective-0(on d b))
 
 ERRO 1!
 
 
 O bloco C esta na posi��o: 0x1
 
-(:init(on c t2))(:objective-0(on c t2))
+(:init(on c t2))(:objective-0(on c t3))
 
 ERRO 1!
 
