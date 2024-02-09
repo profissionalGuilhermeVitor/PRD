@@ -34,7 +34,7 @@ c---2x0
 
 O bloco D esta na posi��o: 3x0
 
-d(:init(on d c))(:objective-0(on d e))
+d(:init(on d c))(:objective-0(on d t3))
 
 d---3x0
 

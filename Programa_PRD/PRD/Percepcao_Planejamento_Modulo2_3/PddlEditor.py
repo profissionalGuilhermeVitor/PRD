@@ -25,9 +25,13 @@ class PddlEditor:
         init = [i[5:] for i in init]
         
         objective = re.findall(":objective-0\(on \w \w+\)",ar1)#Predicados dos objetivos
+        tables = [f"t{i}" for i in range(1,6)]
+        
         objective = [i[12:] for i in objective]
-        blocos = [i[4] for i in init]
+        blocos = [i[4] for i in init] 
         posicoes = [j[6:8] if j[7] != ')' else j[6] for j in init]
+        tablesFile = [i for i in tables if i not in posicoes]
+        blocos = blocos + tablesFile
         clear = []
         pos = []
         c =0
@@ -35,8 +39,8 @@ class PddlEditor:
 
         
             
-        problem = parse_problem('problem.pddl')
-        domain = parse_domain('domain.pddl')
+        problem = parse_problem('TestesExemplo/problem_copy.pddl')
+        domain = parse_domain('TestesExemplo/domain_copy.pddl')
         lista1 = [Constant(i[4]) for i in init]
         lista2 =[Constant(i[6:8]) if i[7]!=')' else Constant(i[6]) for i in init]
         
@@ -99,9 +103,10 @@ class PddlEditor:
 
 
         new_problem = Problem('problemPDDL',domain,domain.name,domain.requirements,problem.objects,pred,aux)
-        print(problem_to_string(new_problem))
-        with open('problem.pddl','w') as arquivos:
-            arquivos.write(problem_to_string(new_problem))
+        problem_to_stringA = problem_to_string(new_problem).replace(":fluents","")
+        
+        with open('TestesExemplo/problem_copy.pddl','w') as arquivos:
+            arquivos.write(problem_to_stringA)
 
-#editor = PddlEditor()
-#editor.editar_problema('testando.txt')
+editor = PddlEditor()
+editor.editar_problema('TestesExemplo/arquivo1.txt')

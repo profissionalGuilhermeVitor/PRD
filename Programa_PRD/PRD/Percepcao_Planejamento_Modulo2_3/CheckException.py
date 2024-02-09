@@ -1,5 +1,5 @@
 import re
-
+import checkExc
 relacoesFixo = {
             "t1":("0x0","1x0","2x0","3x0","4x0"),
             "t2":("0x1","1x1","2x1","3x1","4x1"),
@@ -21,11 +21,31 @@ class CheckException:
     def exception1(self):#Pegar objetivos e inits e verificar se posições batem
         txt1 = CheckException(self.file).tratarArquivo()
         #Listas para exceções
-        excecao1 = []
-        excecao3 =[]
+        actPosition = [('t1',"0x0"),('t2',"0x1"),('t3',"0x2"),('t4',"0x3"),('t5',"0x4"),["a",""],["b",""],["c",""],["d",""],["e",""]]
+        excecao2 = re.findall("O bloco \w",txt1)
+        excecao2 = [p[8].lower() for p in excecao2]
+        excecao3 =re.findall("O bloco \w",txt1)
+        excecao3 = [r[8].lower() for r in excecao3]
+
         #Filtro para inicio e objetivos
         init = re.findall(":init\(on \w \w+\)",txt1)#Predicados dos iniciais
+        for act in actPosition[5:]:
+            for g in init:
+                if (g[9]==act[0]):
+                    if(g[12]==")"):
+                        act[1]=g[11]
+                    else:
+                        act[1]=g[11:13]
         init = [i[5:] for i in init]
+        
+        for g in init:
+            for h in excecao3:
+                if h == g[4]:
+                    excecao3.remove(h)
+                else:
+                    continue
+        
+        
         objective = re.findall(":objective-0\(on \w \w+\)",txt1)#Predicados dos objetivos
         objteste = re.findall(":objective-0(\w+\s)",txt1)
         
@@ -53,6 +73,12 @@ class CheckException:
         for i in pos:#Checar posições iguais colhidas-Exceção 0
             if(pos.count(i)>1):
                 return '0'
+            
+        #Exceção de posicionamento 
+            if (checkExc.checkPosInit(self.file) is None):
+                continue
+            else:
+                return checkExc.checkPosInit(self.file)
         #Criar relação da posição com o bloco
         blocosIniciais = re.findall(":init\(on \w \w+\)",txt1)
         blocosIniciais = [i[9] for i in blocosIniciais]
@@ -66,6 +92,9 @@ class CheckException:
         
         zipBV = list(zip(blocosIniciais,pos))
         mapa = [list(i) for i in relacoesFixo.values()]
+
+        if len(init)<5:return ['3'] + [init] + [mapa] + [zipBV]+ [excecao3]
+        elif len(objective)<5: return ['3o']
 
         relacao ={}
 
@@ -90,7 +119,7 @@ class CheckException:
                 blc.append(blocosIniciais[i[0]])
 
         if(len(blc)!=0):
-            return ['1i'] + [mapa] + [list(relacao)] + [listaBoa] + [blc]
+            return ['1i'] + [init] + [list(relacao)] + [listaBoa] + [blc]
             
 
         
@@ -101,21 +130,29 @@ class CheckException:
         #Inconsistências em objetivos ou iniciais-Blocos na mesma posição que outros-Exceção 2
         counto =0
         counti = 0
+        blt2 = []
 
         for a in objective:
             for j in objective:
                 if(j[6] == a[4] and j[4]==a[6]):
                     counto +=1
+                    if(counto>1):
+                        blt2.append(j[6])
+                        blt2.append(j[4])
+
         
         for a in init:
             for j in init:
                 if(j[6] == a[4] and j[4]==a[6]):
                     counti +=1
+                    if(counti>1):
+                        blt2.append(j[6])
+                        blt2.append(j[4])
 
-        if(counto > 1 or counti > 1):return ['2']
+        if(counto > 1 or counti > 1):return ['2'] + [init] + [mapa] + [zipBV] + [blt2]
         #Objetivo vazio-Exceção 3
         
-        if len(objective)<5 or len(init)<5:return ['3']
+        
         #Situações Impossíveis
         
         #Checagem de exceções por meio de mapa-Exceção 4
@@ -133,5 +170,5 @@ class CheckException:
                     if(checkImpossible2[checkImpossible2.index(i)+1] !='0'):
                         return ['4_2']
 
-exception = CheckException('testando.txt')
-print(exception.exception1() is not None)
+#exEstatica = CheckException('tct.txt')
+#print(exEstatica.exception1())

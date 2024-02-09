@@ -20,7 +20,7 @@ ERRO 1!
 
 O bloco B esta na posi��o: 0x1
 
-(:init(on b t2))(:objective-0(on b a))
+(:init(on b a))(:objective-0(on b t2))
 
 ERRO 1!
 
@@ -41,7 +41,7 @@ ERRO 1!
 
 O bloco A esta na posi��o: 0x4
 
-(:init(on a t5))(:objective-0(on a b))
+(:init(on a b))(:objective-0(on a b))
 
 
 SUCESSO: 5 Blocos Foram Encontrados!

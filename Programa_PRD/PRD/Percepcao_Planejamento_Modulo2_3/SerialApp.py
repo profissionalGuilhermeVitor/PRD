@@ -22,7 +22,8 @@ class SerialApp ():
 
     #Receber Dados
     def receiveData(self):
-        dataRead = self.serialPort.read(590).decode('utf-8')
+        dataRead = ""
+        dataRead = self.serialPort.read().decode("latin-1")
         print(dataRead)
         return dataRead
 
