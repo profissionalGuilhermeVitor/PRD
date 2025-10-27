@@ -1,7 +1,7 @@
-<h1>Sistema completo PRD</h1>
+<h1>Predicate Inside RFID Database (PRD) System</h1>
 
-> Sistema completo definido por codificação
-> Alteração numero 1
+> Python system using Arduino IDE.
+
 >
 <h1> Fluxograma completo PRD
 
