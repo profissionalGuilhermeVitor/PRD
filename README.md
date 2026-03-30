@@ -12,5 +12,6 @@
 > - [x] Few cost
 > - [x] Aplicable in Industrial Envinronments
 
-
+<p align="center">
 <img width="663" height="677" alt="image" src="https://github.com/user-attachments/assets/7ebb73dd-765c-441d-a731-22fe96abe16c" />
+</p>
