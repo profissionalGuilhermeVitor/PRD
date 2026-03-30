@@ -5,6 +5,7 @@
 >
 
 # AI control of a cartesian robot using Python
+![Static Badge](https://img.shields.io/badge/PRD-brightgreen?style=flat)
 
 > AI implemented in Industrial Robots concern few machine learning methods to conceal aplicability and efficiency. The PRD techinique implements a automatic planner
 > in a Cartesian Robot.
